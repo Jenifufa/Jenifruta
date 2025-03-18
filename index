@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motocicletas Deportivas 2025 - Colombia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #000000, #333333);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .bikes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .bike-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .bike-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .bike-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bike-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .bike-card:hover .bike-image img {
+            transform: scale(1.1);
+        }
+        
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #333;
+        }
+        
+        .bike-info {
+            padding: 1.5rem;
+        }
+        
+        .bike-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bike-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 1rem 0;
+        }
+        
+        .bike-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            border-top: 1px solid #3a3a3a;
+            padding-top: 1rem;
+        }
+        
+        .bike-spec {
+            text-align: center;
+        }
+        
+        .bike-spec i {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #a0a0a0;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, #505050, #707070);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(90deg, #707070, #909090);
+        }
+        
+        footer {
+            background: #000000;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        /* Chatbot Styles */
+        .chat-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #505050;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        
+        .chat-icon:hover {
+            transform: scale(1.1);
+            background-color: #707070;
+        }
+        
+        .chat-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            max-height: 500px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            display: none;
+            flex-direction: column;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(90deg, #303030, #505050);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+        
+        .close-chat {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-chat:hover {
+            color: #ffffff;
+        }
+        
+        .chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            max-height: 350px;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .bot-message {
+            background-color: #303030;
+            border-top-left-radius: 0;
+            margin-right: auto;
+        }
+        
+        .user-message {
+            background-color: #505050;
+            border-top-right-radius: 0;
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            padding: 1rem;
+            background-color: #252525;
+            border-top: 1px solid #3a3a3a;
+        }
+        
+        .chat-input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #303030;
+            color: #e0e0e0;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #505050;
+        }
+        
+        .send-button {
+            margin-left: 0.5rem;
+            padding: 0.8rem;
+            background-color: #505050;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .send-button:hover {
+            background-color: #707070;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .bikes-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .chatbot-container {
+                width: 300px;
+                right: 10px;
+                bottom: 80px;
+            }
+            
+            .chat-icon {
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Motocicletas Deportivas</h1>
+            <p class="subtitle">Las mejores motos deportivas 2025 en Colombia</p>
+        </div>
+    </header>
+    
+    <section class="intro">
+        <div class="container">
+            <h2>Catálogo 2025</h2>
+            <p>Descubre nuestra selección de las mejores motocicletas deportivas del 2025 disponibles en Colombia, ordenadas desde la más económica.</p>
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="bikes-container">
+            <!-- Moto 1 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://imgd.aeplcdn.com/1056x594/bw/ec/33121/Yamaha-YZF-R15-V3-Side-118925.jpg?wm=0&q=80" 
+                    alt="Yamaha YZF-R15">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #ff0000;"></div>
+                        <div class="color-option" style="background-color: #0000ff;"></div>
+                        <div class="color-option" style="background-color: #333333;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">Yamaha YZF-R15</h3>
+                    <p>Moto deportiva de entrada con excelente relación calidad-precio.</p>
+                    <p class="bike-price">COP 12,500,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>155cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>19 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>137 kg</p>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            
+            <!-- Moto 2 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://ride-octane-api-prod-static.s3.amazonaws.com/media/ext/17/gallery/honda/2019-honda-cbr300r-base-blk.jpg" alt="Honda CBR300R">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #ff0000;"></div>
+                        <div class="color-option" style="background-color: #ffffff;"></div>
+                        <div class="color-option" style="background-color: #000000;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">Honda CBR300R</h3>
+                    <p>Deportiva compacta con gran maniobrabilidad y economía.</p>
+                    <p class="bike-price">COP 14,990,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>286cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>31 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>164 kg</p>
+                        </div>
+                    </div>
+               
+                </div>
+            </div>
+            
+            <!-- Moto 3 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://2wheelsave.com/cdn/shop/files/Kawasaki_Ninja_400_side_with_with_2wheelsave_tail_tidy.png?v=1727291742&width=1946" alt="Kawasaki Ninja 400">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #00ff00;"></div>
+                        <div class="color-option" style="background-color: #000000;"></div>
+                        <div class="color-option" style="background-color: #ff0000;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">Kawasaki Ninja 400</h3>
+                    <p>Deportiva de media cilindrada con excelente aceleración.</p>
+                    <p class="bike-price">COP 19,500,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>399cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>49 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>168 kg</p>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            
+            <!-- Moto 4 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://imgd.aeplcdn.com/1280x720/bw/ec/26673/KTM-RC390--2017-Side-88384.jpg?v=201711021421&q=100" 
+                    alt="KTM RC 390">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #ff6600;"></div>
+                        <div class="color-option" style="background-color: #ffffff;"></div>
+                        <div class="color-option" style="background-color: #000000;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">KTM RC 390</h3>
+                    <p>Deportiva agresiva con mejor potencia en su categoría.</p>
+                    <p class="bike-price">COP 23,990,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>373cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>43 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>155 kg</p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <!-- Moto 5 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Suzuki-GSXR-600-2012-5.jpg/640px-Suzuki-GSXR-600-2012-5.jpg" 
+                    alt="Suzuki GSX-R600">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #0000ff;"></div>
+                        <div class="color-option" style="background-color: #ffffff;"></div>
+                        <div class="color-option" style="background-color: #000000;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">Suzuki GSX-R600</h3>
+                    <p>Deportiva de alta cilindrada con excelente manejo.</p>
+                    <p class="bike-price">COP 39,900,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>599cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>104 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>187 kg</p>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+            
+            <!-- Moto 6 -->
+            <div class="bike-card">
+                <div class="bike-image">
+                    <img src="https://crmotos.com/wp-content/uploads/2024/10/PanigaleV2_2024_4.jpg" alt="Ducati Panigale V2">
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #ff0000;"></div>
+                        <div class="color-option" style="background-color: #ffffff;"></div>
+                        <div class="color-option" style="background-color: #000000;"></div>
+                    </div>
+                </div>
+                <div class="bike-info">
+                    <h3 class="bike-name">Ducati Panigale V2</h3>
+                    <p>Superbike italiana con diseño y prestaciones de alta gama.</p>
+                    <p class="bike-price">COP 89,900,000</p>
+                    <div class="bike-specs">
+                        <div class="bike-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <p>955cc</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-bolt"></i>
+                            <p>155 HP</p>
+                        </div>
+                        <div class="bike-spec">
+                            <i class="fas fa-weight"></i>
+                            <p>176 kg</p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="footer-content">
+            <p>© 2025 Motocicletas Deportivas Colombia</p>
+            <div class="footer-links">
+                <a href="#">Sobre Nosotros</a>
+                <a href="mailto:jenifer.urbano@campusucc.edu.co">Contacto</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+    
+        <div class="contact-info" style="margin-top: 20px;">
+            <p>Jenifer Daniela Urbano Córdoba</p>
+            <p>Ingeniería de Software</p>
+            <p><a href="tel:+573136624954">3136624954</a></p>
+        </div>
+    </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chat-icon" id="chatIcon">
+        <i class="fas fa-comments"></i>
+    </div>
+    
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Asistente de Motos</div>
+            <div class="close-chat" id="closeChat"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                ¡Hola! Soy tu asistente virtual de motocicletas. ¿En qué puedo ayudarte hoy?
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu pregunta aquí...">
+            <button class="send-button" id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatIcon = document.getElementById('chatIcon');
+            const chatbotContainer = document.getElementById('chatbotContainer');
+            const closeChat = document.getElementById('closeChat');
+            const chatInput = document.getElementById('chatInput');
+            const sendMessage = document.getElementById('sendMessage');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Base de conocimiento para el chatbot
+            const knowledgeBase = {
+                'yamaha': 'La Yamaha YZF-R15 es una excelente moto de entrada con un motor de 155cc que produce 19HP. Tiene un precio de COP 12,500,000.',
+                'honda': 'La Honda CBR300R es una deportiva compacta con un motor de 286cc que produce 31HP. Su precio es de COP 14,990,000.',
+                'kawasaki': 'La Kawasaki Ninja 400 tiene un motor de 399cc que produce 49HP. Es muy ágil y su precio es de COP 19,500,000.',
+                'ktm': 'La KTM RC 390 tiene un motor de 373cc con 43HP. Es conocida por su manejo deportivo y agresivo. Su precio es COP 23,990,000.',
+                'suzuki': 'La Suzuki GSX-R600 es una superbike con motor de 599cc y 104HP. Su precio es de COP 39,900,000.',
+                'ducati': 'La Ducati Panigale V2 es nuestra moto premium con motor de 955cc y 155HP. Precio: COP 89,900,000.',
+                'precio': 'Nuestras motos van desde COP 12,500,000 (Yamaha YZF-R15) hasta COP 89,900,000 (Ducati Panigale V2).',
+                'colores': 'Todas nuestras motos están disponibles en múltiples colores. Puedes visitar nuestra tienda para ver todas las opciones.',
+                'financiación': 'Ofrecemos planes de financiación desde 12 hasta 60 meses con una tasa desde el 1.2% mensual dependiendo de tu perfil crediticio.',
+                'garantía': 'Todas nuestras motos tienen garantía de 2 años o 30,000 km, lo que ocurra primero.',
+                'mantenimiento': 'Recomendamos hacer mantenimiento preventivo cada 5,000 km o 6 meses, lo que ocurra primero.',
+                'repuestos': 'Contamos con repuestos originales para todas las marcas que vendemos y servicio técnico especializado.',
+                'seguros': 'Ofrecemos seguros todo riesgo con cobertura especial para motos deportivas desde COP 180,000 mensuales.',
+                'prueba': 'Puedes agendar una prueba de manejo visitando nuestra tienda o llamando al número que aparece en la sección de contacto.'
+            };
+            
+            // Abrir el chatbot
+            chatIcon.addEventListener('click', function() {
+                chatbotContainer.style.display = 'flex';
+                chatIcon.style.display = 'none';
+            });
+            
+            // Cerrar el chatbot
+            closeChat.addEventListener('click', function() {
+                chatbotContainer.style.display = 'none';
+                chatIcon.style.display = 'flex';
+            });
+            
+            // Enviar mensaje al presionar Enter
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendUserMessage();
+                }
+            });
+            
+            // Enviar mensaje al hacer clic en el botón
+            sendMessage.addEventListener('click', sendUserMessage);
+            
+            function sendUserMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    // Agregar mensaje del usuario
+                    addMessage(message, 'user');
+                    chatInput.value = '';
+                    
+                    // Procesar respuesta
+                    setTimeout(() => {
+                        const response = getBotResponse(message);
+                        addMessage(response, 'bot');
+                    }, 500);
+                }
+            }
+            
+            function addMessage(message, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+                messageElement.textContent = message;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function getBotResponse(message) {
+                message = message.toLowerCase();
+                
+                // Buscar palabras clave en el mensaje
+                for (const keyword in knowledgeBase) {
+                    if (message.includes(keyword)) {
+                        return knowledgeBase[keyword];
+                    }
+                }
+                
+            // Respuestas específicas para preguntas comunes
+            if (message.includes('hola') || message.includes('buenos días') || message.includes('buenas tardes')) {
+                return '¡Hola! ¿En qué puedo ayudarte con nuestras motocicletas deportivas?';
+            } else if (message.includes('gracias')) {
+                return 'De nada. ¡Estoy aquí para ayudarte! ¿Hay algo más que quieras saber?';
+            } else if (message.includes('mejor moto')) {
+                return 'La mejor moto depende de tu experiencia y presupuesto. Para principiantes, la Yamaha R15 es excelente. Para motoristas experimentados, la Ducati Panigale V2 ofrece el máximo rendimiento.';
+            } else if (message.includes('tienda') || message.includes('ubicación') || message.includes('dirección')) {
+                return 'Nuestra tienda principal está ubicada en Av. Calle 100 #15-32, Bogotá. También tenemos sucursales en Medellín, Cali y Barranquilla.';
+            } else if (message.includes('pago') || message.includes('tarjeta')) {
+                return 'Aceptamos todas las tarjetas de crédito, transferencias bancarias, efectivo y contamos con financiación directa o a través de entidades bancarias.';
+            }
+                
+                // Respuesta por defecto
+                return 'No tengo información específica sobre eso. ¿Puedo ayudarte con información sobre nuestras motos, precios, financiación o servicios? También puedes llamarnos al 601-123-4567 para más información.';
+            }
+            
+            // Color de las motos (funcionalidad visual)
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const bikeCard = this.closest('.bike-card');
+                    const bikeImage = bikeCard.querySelector('.bike-image');
+                    
+                    // Cambiar borde del color seleccionado
+                    bikeCard.querySelectorAll('.color-option').forEach(opt => {
+                        opt.style.borderColor = '#333';
+                    });
+                    this.style.borderColor = '#fff';
+                    
+                    // Un efecto visual simple para simular el cambio de color
+                    bikeImage.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
